@@ -9,3 +9,11 @@ class Entry(models.Model):
     entry_text = models.TextField()
     entry_date = models.DateTimeField(auto_now_add=True)
     entry_author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    class Meta:
+        # Changes objects display name in Admin page
+        verbose_name_plural = 'entries'
+        
+    # Returns string representation of object
+    def __str__(self):
+        return self.entry_title
